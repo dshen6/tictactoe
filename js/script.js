@@ -1,9 +1,35 @@
+let currentPlayer = "x";
+let gameResult;
 
+// this function is called everytime a button is clicked.
+// Q: What are the values of buttonId and tileId when Tile 1 is clicked? Tile 5?
+function performLogic(buttonId, tileId) {
+    $(buttonId).hide();
+    $(tileId).text(currentPlayer);
+    changePlayer();
+    updateGameState()
+    showGameState();
+}
 
+// changes the current player's turn
+// Q: What if I wanted my players to be "Kobe" and "Lebron" instead of "x" and "o"?
+//      What lines of code would I need to change?
+function changePlayer() {
+    if (currentPlayer === "x") {
+        currentPlayer = "o";
+    } else {
+        currentPlayer = "x";
+    }
+}
 
+// decide if a player won, or if there's a draw
+// Q: What variable do update in this function?
+function updateGameState() {
+}
 
-
-
+function showGameState() {
+    $("h2").text(gameResult);
+}
 
 $("#button1").click(function() {
     performLogic("#button1","#tile1");
